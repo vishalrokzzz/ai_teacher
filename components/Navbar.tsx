@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from "next/link";
 import Image from "next/image";
+import NavItems from "@/components/NavItems";
 
 const Navbar = () => {
     return (
@@ -13,9 +14,7 @@ const Navbar = () => {
             </Link>
             <div className="spacer"
                  style={{marginLeft: 'auto', display: 'flex', justifyContent: 'space-between', width: '400px'}}>
-                <div className="spacer-inner">Home</div>
-                <div className="spacer-inner">Companions</div>
-                <div className="spacer-inner">My-journey</div>
+                <NavItems/>
                 <div className="spacer-inner">Sign In</div>
             </div>
         </nav>
