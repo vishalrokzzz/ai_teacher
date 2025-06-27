@@ -2,18 +2,19 @@ import React from 'react'
 import CompanionCard from "@/components/CompanionCard";
 import CompanionsList from "@/components/CompanionsList";
 import Cta from "@/components/Cta";
+import {recentSessions} from "@/constants";
 
 const Page = () => {
   return (
     <main>
 
-      <h1 className="text-2xl">Popular companions</h1>
+      <h1>Popular companions</h1>
         <section className={"home-section"}>
             <CompanionCard
             id="1"
             name={"ai philosopher"}
             duration={45}
-            color={"#amc35"}
+            color={"#acf357"}
             subject={"philosophy"}
             topic={"existentialism"}
             />
@@ -21,7 +22,7 @@ const Page = () => {
                 id="2"
                 name={"ai writer"}
                 duration={46}
-                color={"#kgu54"}
+                color={"#e1d0fa"}
                 subject={"philosophy"}
                 topic={"existentialism"}
             />
@@ -29,14 +30,18 @@ const Page = () => {
                 id="3"
                 name={"ai boxer"}
                 duration={47}
-                color={"#xrk67"}
+                color={"#c6e5fc"}
                 subject={"philosophy"}
                 topic={"existentialism"}
             />
         </section>
-        <h1 className={"text-2xl"}>Companions available</h1>
+
         <section className={"home-section"}>
-            <CompanionsList/>
+            <CompanionsList
+                title={"recent companions"}
+                companions={recentSessions}
+                classNames={"w-2/3 max-lg:w-full"}
+            />
             <Cta/>
         </section>
     </main>

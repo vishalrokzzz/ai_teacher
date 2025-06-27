@@ -22,7 +22,7 @@ const CompanionCard = ({id,name,topic,color,subject,duration}:CompanionCardProps
                 </button>
             </div>
             <h2 className={"text-2xl font-bold"}>{name}</h2>
-            <p className={"text-lg"}>{topic}</p>
+            <p className={"text-sm"}>{topic}</p>
             <div className={"flex items-center gap-2"}>
                 <Image src={"/icons/clock.svg"} alt={"clockImage"} width={12.5} height={15}/>
                 <p className={"text-sm"}>{duration} minutes</p>
@@ -30,11 +30,6 @@ const CompanionCard = ({id,name,topic,color,subject,duration}:CompanionCardProps
             <Link href={`/companions/${id}`} className={"w-full "}>
                 <button className={"w-full btn-primary justify-center"}>Launch Companion</button>
             </Link>
-
-
-
-
-
         </article>
     );
 };
