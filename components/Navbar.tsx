@@ -13,7 +13,7 @@ const Navbar = () => {
                 </div>
             </Link>
             <div className="spacer"
-                 style={{marginLeft: 'auto', display: 'flex', justifyContent: 'space-between', width: '400px'}}>
+                 style={{marginLeft: 'auto', display: 'flex', justifyContent: 'space-between', width: '330px'}}>
                 <NavItems/>
                 <div className="spacer-inner">Sign In</div>
             </div>
