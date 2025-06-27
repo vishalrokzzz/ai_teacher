@@ -28,7 +28,7 @@ const CompanionsList = ({title,companions,classNames}:CompanionsListProps) => {
                     <TableRow>
                         <TableHead className="w-2/3 text-lg">Lessons</TableHead>
 
-                        <TableHead className={"text-lg"}>Subject</TableHead>
+                        <TableHead className={"text-lg max-md:hidden"}>Subject</TableHead>
                         <TableHead className="text-right text-lg">Duration</TableHead>
                     </TableRow>
                 </TableHeader>

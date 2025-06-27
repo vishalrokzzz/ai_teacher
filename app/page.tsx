@@ -6,9 +6,8 @@ import {recentSessions} from "@/constants";
 
 const Page = () => {
   return (
-    <main>
-
-      <h1>Popular companions</h1>
+    <main className={"py-4"}>
+      <h1 className={"p-1"}>Popular companions</h1>
         <section className={"home-section"}>
             <CompanionCard
             id="1"
