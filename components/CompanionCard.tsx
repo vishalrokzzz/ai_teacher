@@ -28,7 +28,7 @@ const CompanionCard = ({id,name,topic,color,subject,duration}:CompanionCardProps
                 <p className={"text-sm"}>{duration} minutes</p>
             </div>
             <Link href={`/companions/${id}`} className={"w-full "}>
-                <button className={"w-full btn-primary justify-center"}>Launch Companion</button>
+                <button className={"bg-blue-600 w-full btn-primary justify-center"}>Launch Companion</button>
             </Link>
         </article>
     );

@@ -22,7 +22,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${bricolage.variable} antialiased`}>
       <Navbar/>
-      {children}
+      <div className={"py-10"}>
+          {children}
+      </div>
+
       </body>
     </html>
   );
