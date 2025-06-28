@@ -2,7 +2,7 @@
 
 const CompanionsLibrary = () => {
     return (
-        <div>
+        <div className="p-19">
             companions page
 
         </div>
