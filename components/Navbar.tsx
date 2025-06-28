@@ -27,7 +27,7 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import NavItems from '@/components/NavItems';
-import { SignInButton, SignUpButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
+import { SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
 
 const Navbar = () => {
     const [showNavbar, setShowNavbar] = useState(true);
@@ -62,13 +62,15 @@ const Navbar = () => {
                 </div>
             </Link>
             <div className="ml-auto flex items-center gap-4"
-                 style={{marginLeft: 'auto', display: 'flex', justifyContent: 'space-between', width: '400px'}}>
+                 style={{marginLeft: 'auto', display: 'flex', justifyContent: 'space-between', width: '330px'}}>
                 <NavItems/>
                 <div className="flex items-center gap-2">
                     <SignedOut>
-                        <SignInButton />
-                        <SignUpButton />
+                        <div className={"flex items-center gap-2"}>
+                            <SignInButton />
+                        </div>
                     </SignedOut>
+
                     <SignedIn>
                         <UserButton />
                     </SignedIn>
