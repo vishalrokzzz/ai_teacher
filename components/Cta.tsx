@@ -16,15 +16,14 @@ const Cta = () => {
             <div>
                 <Image src={"/images/cta.svg"} alt={"logo"} width={400} height={400} />
             </div>
+            <Link href={"/companions/new"} className={"flex w-full"}>
             <div className={"flex w-full "}>
                 <Button className={"bg-blue-600 text-white px-4 py-2 rounded btn-primary w-full"}>
                     <Image src={"/icons/plus.svg"} alt={"plus"} width={20} height={20} />
-                    <Link href={"/companions/new"}>
                         <span >Build new companion</span>
-                    </Link>
-
                 </Button>
             </div>
+            </Link>
         </article>
     );
 };

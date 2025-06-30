@@ -58,7 +58,7 @@ const Navbar = () => {
         }`}>
             <Link href="/">
                 <div className="logo">
-                    <Image src={"/images/logo.svg"} alt={"logo"} width={46} height={44}/>
+                    <Image src={"/images/mentra.png"} alt={"logo"} width={100} height={70}/>
                 </div>
             </Link>
             <div className="ml-auto flex items-center gap-4"
@@ -66,13 +66,15 @@ const Navbar = () => {
                 <NavItems/>
                 <div className="flex items-center gap-2">
                     <SignedOut>
-                        <div className={"flex items-center gap-2"}>
-                            <SignInButton />
+                        <div className={"cursor-pointer flex items-center gap-2 "}>
+                            <SignInButton>
+                                <div className="cursor-pointer">Sign In</div>
+                            </SignInButton>
                         </div>
                     </SignedOut>
 
                     <SignedIn>
-                        <UserButton />
+                        <UserButton afterSignOutUrl={"/"}/>
                     </SignedIn>
                 </div>
             </div>
