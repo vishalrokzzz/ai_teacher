@@ -12,7 +12,7 @@ export default function PricingTableClient() {
   }
 
   return (
-    <ClerkProvider publishableKey={publishableKey}>
+    <ClerkProvider publishableKey={publishableKey} appearance={{variables : {colorPrimary: '#2d5cf2'}}}>
       <PricingTable />
     </ClerkProvider>
   );
