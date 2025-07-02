@@ -1,6 +1,5 @@
 "use client"
 import React, {useEffect} from 'react';
-import Image from "next/image";
 import {usePathname, useRouter, useSearchParams} from "next/navigation";
 import {formUrlQuery, removeKeysFromUrlQuery} from "@jsmastery/utils";
 import {
@@ -19,6 +18,10 @@ const SubjectFilter = () => {
     const path=usePathname();
 
     useEffect(() => {
+
+        if(search=="All"){
+            setSearch("");
+        }
 
         const useDelay=setTimeout(()=>{
             if (search){
@@ -40,19 +43,19 @@ const SubjectFilter = () => {
         },0)
 
 
-    })
+    },[search,searchParams,path,router]);
 
 
     return (
         <div className="w-full max-w-xs">
             <Select value={search} onValueChange={setSearch}>
-                <SelectTrigger className="w-full">
-                    <SelectValue placeholder="Select a subject" />
+                <SelectTrigger className="w-[130px]">
+                    <SelectValue placeholder="Subject" />
                 </SelectTrigger>
                 <SelectContent>
-                    {/*<SelectItem value="">All Subjects</SelectItem>*/}
+                    <SelectItem value="All">All Subjects</SelectItem>
                     {subjects.map((subject) => (
-                        <SelectItem value={subject}  key={subject}  >{subject}</SelectItem>
+                        <SelectItem value={subject}  key={subject}  >{subject.charAt(0).toUpperCase() + subject.slice(1)}</SelectItem>
                     ))}
 
                 </SelectContent>
