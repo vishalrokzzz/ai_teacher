@@ -35,7 +35,7 @@ const SearchInputs = () => {
                 router.push(newUrl, { scroll: false });
             }
 
-        },500)
+        },400)
 
 
 
