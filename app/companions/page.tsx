@@ -2,8 +2,9 @@
 
 const CompanionsLibrary = () => {
     return (
-        <div className="p-19">
+        <div className="p-30">
             companions page
+            <p>companion page</p>
 
         </div>
     );
