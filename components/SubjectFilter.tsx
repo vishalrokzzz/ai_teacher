@@ -3,6 +3,14 @@ import React, {useEffect} from 'react';
 import Image from "next/image";
 import {usePathname, useRouter, useSearchParams} from "next/navigation";
 import {formUrlQuery, removeKeysFromUrlQuery} from "@jsmastery/utils";
+import {
+    Select,
+    SelectTrigger,
+    SelectContent,
+    SelectItem,
+    SelectValue,
+} from "@/components/ui/select";
+import {subjects} from "@/constants";
 
 const SubjectFilter = () => {
     const router = useRouter();
@@ -29,24 +37,26 @@ const SubjectFilter = () => {
 
                 router.push(newUrl, { scroll: false });
             }
-        },400)
+        },0)
 
 
     })
 
 
     return (
-        <div className={"relative border border-gray-200 rounded-lg items-center flex gap-2 px-2 py-1 h-fit"}>
-            <Image src={"/icons/search.svg"} alt={search} height={15} width={15}/>
-            <input
-                   placeholder={"Search in Subjects"}
-                   className={"border-none outline-none rounded-lg"}
-                   onChange={(e) => setSearch(e.target.value)}
-                   value={search}
-            />
+        <div className="w-full max-w-xs">
+            <Select value={search} onValueChange={setSearch}>
+                <SelectTrigger className="w-full">
+                    <SelectValue placeholder="Select a subject" />
+                </SelectTrigger>
+                <SelectContent>
+                    {/*<SelectItem value="">All Subjects</SelectItem>*/}
+                    {subjects.map((subject) => (
+                        <SelectItem value={subject}  key={subject}  >{subject}</SelectItem>
+                    ))}
 
-
-
+                </SelectContent>
+            </Select>
         </div>
     );
 };
