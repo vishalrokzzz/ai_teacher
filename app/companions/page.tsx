@@ -2,9 +2,8 @@
 
 const CompanionsLibrary = () => {
     return (
-        <div className="p-30">
+        <div className={"py-19"}>
             companions page
-            <p>companion page</p>
 
         </div>
     );
