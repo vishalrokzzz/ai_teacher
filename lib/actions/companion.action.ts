@@ -25,7 +25,7 @@ export const getALLCompanions = async ({limit=10,page=1,subject,topic}:GetAllCom
     const supabase = createSupabaseClient();
     let query = supabase.from("companions").select();
     if (subject && topic){
-        query = query.ilike('subject',`%${subject}%}`)
+        query = query.ilike('subject',`%${subject}%`)
             .or(`topic.ilike.%${topic}%,name.ilike.%${topic}%`)
 
     }else if (subject) {
