@@ -39,3 +39,10 @@ export const getALLCompanions = async ({limit=10,page=1,subject,topic}:GetAllCom
     if (error || !companions) throw new Error(error?.message || "failed to create a companion");
     return companions;
 }
+
+export const getCompanion=async (id: string) =>{
+    const supabase = createSupabaseClient();
+    const {data:companion,error} = await supabase.from("companions").select().eq("id",id).single();
+    if (error || !companion) throw new Error(error?.message || "failed to fetch the companion with id");
+    return companion;
+}
