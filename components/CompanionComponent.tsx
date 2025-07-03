@@ -85,7 +85,7 @@ const CompanionComponent = ({ companionId, subject, topic, name, userName, userI
             serverMessages: [],
         }
 
-        // @ts-expect-error
+
         vapi.start(configureAssistant(voice, style), assistantOverrides)
     }
 
@@ -95,7 +95,7 @@ const CompanionComponent = ({ companionId, subject, topic, name, userName, userI
     }
 
     return (
-        <section className="flex flex-col h-[70vh]">
+        <section className="flex flex-col h-[80vh]">
             <section className="flex gap-8 max-sm:flex-col">
                 <div className="companion-section">
                     <div className="companion-avatar" style={{ backgroundColor: getSubjectColor(subject)}}>
@@ -158,14 +158,15 @@ const CompanionComponent = ({ companionId, subject, topic, name, userName, userI
                                 </p>
                             )
                         } else {
-                            return <p key={index} className="text-primary text-sm">
+                            return <p key={index} className="text-primary text-sm font-bold">
                                 {userName}: {message.content}
                             </p>
                         }
                     })}
                 </div>
 
-                <div className="transcript-fade" />
+
+                <div className="transcript-fade h-[17px]" />
             </section>
         </section>
     )
