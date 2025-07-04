@@ -2,9 +2,7 @@ import React from 'react'
 import CompanionCard from "@/components/CompanionCard";
 import CompanionsList from "@/components/CompanionsList";
 import Cta from "@/components/Cta";
-import {recentSessions} from "@/constants";
 import {getALLCompanions, getRecentSessions} from "@/lib/actions/companion.action";
-import {asyncWalk} from "estree-walker";
 import {getSubjectColor} from "@/lib/utils";
 
 const Page = async () => {

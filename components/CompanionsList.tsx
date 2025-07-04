@@ -21,7 +21,7 @@ interface CompanionsListProps{
 const CompanionsList = ({title,companions,classNames}:CompanionsListProps) => {
     return (
         <article className={cn("companions-list border border-gray-300 rounded-2xl p-4 shadow-sm", classNames)}>
-            <h1>Recently completed lessons</h1>
+            <h1>{title}</h1>
             <Table className="border-separate border-spacing-0">
 
                 <TableHeader>
