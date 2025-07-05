@@ -12,11 +12,11 @@ import Link from "next/link";
 const NewCompanion = async () => {
     const {userId}= await auth();
     if(!userId)  redirect("/sign-in");
-    const permission = await newCompanionPermissions();
+    const canCreateCompanion = await newCompanionPermissions();
 
     return (
         <main className={"max-md:w-2/3 min-lg:w-1/3 items-center justify-center"}>
-            {permission ? (
+            {canCreateCompanion ? (
                 <article className={"w-full gap-4 "}>
                     <h1 className={"flex items-center justify-center p-4 "}>Companion builder</h1>
                     <CompanionForm/>
