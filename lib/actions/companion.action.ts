@@ -1,7 +1,8 @@
 "use server";
 
-import {auth} from "@clerk/nextjs/server";
+import {auth, currentUser} from "@clerk/nextjs/server";
 import {createSupabaseClient} from "@/lib/supabase";
+import {redirect} from "next/navigation";
 
 //create a companion
 
@@ -100,3 +101,27 @@ export const getUserCompanions = async (userId: string) => {
 
     return data;
 }
+
+export const newCompanionPermissions = async () => {
+    const {userId,has} = await auth();
+
+    const user = await currentUser();
+    if (!user) return redirect("/sign-in");
+
+    let limit =0
+    const companions = await getUserCompanions(user.id);
+    if (has({plan : "Pro"})){
+        limit=1;
+    }else if (has({feature : "2_active_companions_limit"})){
+        limit = 3;
+    }
+    else if (has({feature : "10_active_companions_limit"})){
+        limit = 10;
+    }
+    const companionCount= companions?.length
+    if (companionCount >= limit){
+        return false;
+    }else {
+        return true;
+    }
+    }
