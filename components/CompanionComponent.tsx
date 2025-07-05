@@ -106,7 +106,7 @@ const CompanionComponent = ({ companionId, subject, topic, name, userName, userI
                                     'absolute transition-opacity duration-1000', callStatus === CallStatus.FINISHED || callStatus === CallStatus.INACTIVE ? 'opacity-1001' : 'opacity-0', callStatus === CallStatus.CONNECTING && 'opacity-100 animate-pulse'
                                 )
                             }>
-                            <Image src={`/icons/${subject}.svg`} alt={subject} width={150} height={150} className="max-sm:w-fit" />
+                            <Image src={`/icons/${subject}.svg`} alt={subject} width={150} height={150} className="w-36 h-36 max-sm:w-24 max-sm:h-24 object-contain mx-auto" />
                         </div>
 
                         <div className={cn('absolute transition-opacity duration-1000', callStatus === CallStatus.ACTIVE ? 'opacity-100': 'opacity-0')}>
