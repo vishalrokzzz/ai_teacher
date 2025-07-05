@@ -111,7 +111,7 @@ export const newCompanionPermissions = async () => {
     let limit =0
     const companions = await getUserCompanions(user.id);
     if (has({plan : "Pro"})){
-        limit=1;
+        return true;
     }else if (has({feature : "2_active_companions_limit"})){
         limit = 3;
     }

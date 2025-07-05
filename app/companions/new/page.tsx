@@ -30,12 +30,6 @@ const NewCompanion = async () => {
                     <Link href={"/subscription"} className={"btn-primary w-2/3 text-center items-center justify-center"}>
                             Upgrade
                     </Link>
-
-
-
-
-
-
                 </article>
             )}
 
