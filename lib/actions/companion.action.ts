@@ -64,18 +64,46 @@ export const addToSessionHistory = async (companionId: string) => {
     return data;
 }
 
+// export const getRecentSessions = async (limit = 10) => {
+//     const supabase = createSupabaseClient();
+//     const { data, error } = await supabase
+//         .from('session_history')
+//         .select(`companions:companion_id (*)`)
+//         .order('created_at', { ascending: false })
+//         .limit(limit)
+//
+//     if(error) throw new Error(error.message);
+//
+//     return data.map(({ companions }) => companions);
+// }
 export const getRecentSessions = async (limit = 10) => {
     const supabase = createSupabaseClient();
+
+
     const { data, error } = await supabase
         .from('session_history')
-        .select(`companions:companion_id (*)`)
+        .select(`companions:companion_id (*), companion_id, created_at`)
         .order('created_at', { ascending: false })
-        .limit(limit)
+        .limit(100);
 
-    if(error) throw new Error(error.message);
+    if (error) throw new Error(error.message);
 
-    return data.map(({ companions }) => companions);
-}
+
+    const seen = new Set();
+    const uniqueCompanions = [];
+
+    for (const row of data) {
+        if (!seen.has(row.companion_id)) {
+            seen.add(row.companion_id);
+            uniqueCompanions.push(row.companions);
+        }
+
+        if (uniqueCompanions.length >= limit) break;
+    }
+
+    return uniqueCompanions;
+};
+
 
 export const getUserSessions = async (userId: string, limit = 10) => {
     const supabase = createSupabaseClient();
