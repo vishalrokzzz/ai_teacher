@@ -35,7 +35,7 @@ export const getALLCompanions = async ({limit=10,page=1,subject,topic}:GetAllCom
     }else if (topic) {
         query = query.or(`topic.ilike.%${topic}%,name.ilike.%${topic}%`)
     }
-
+    query = query.order("created_at", { ascending: false });
     query= query.range((page-1)*limit,page*limit - 1);
     const {data:companions, error} = await query;
     if (error || !companions) throw new Error(error?.message || "failed to create a companion");
